@@ -1,0 +1,38 @@
+--Basic Data Exploration
+
+select * from transactions
+
+--Total number of records
+
+select count(*) as no_of_records from transactions
+
+--Distinct cards type
+
+select count(*),card_type as distict_type from transactions group by card_type
+--Number of transactions by cards_type and alldetails of transaction.
+
+select card_type,count(transaction_id) as trans_id from transactions group by card_type
+
+--TOP 10 Transactions by city
+
+SELECT TOP 10 city ,
+COUNT( transaction_id ) AS no_of_transactions
+FROM transactions
+GROUP BY city 
+ORDER BY city  DESC;
+
+select * from transactions
+
+--Transactions by gender
+select gender,count(transaction_id) from transactions group by gender order by gender ASC
+
+--write a query to print highest spend month and amount spent in that month for each card type */
+
+select DATEPART(MONTH,transaction_date) as month_transaction,
+DATEPART(YEAR,transaction_date) as year_transaction from transactions
+
+
+
+
+
+
